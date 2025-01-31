@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #e0dad1;
+      min-width: 250px;
+      height: 270px;
+      z-index: 1;
+      margin-left: 40px;
+      border-radius: 20px;
+      overflow: hidden;
+      padding-top: 20px;
+    }
+
+    .dropdown-content a {
+      color: #756452;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 600px;
+      font-size: 20px;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #c3b89e;
+      color: white;
+    }
+
+    /* Styling the dropdown button */
+    .dropdown button {
+      color: #756452;
+      background-color: #faf8ef;
+      border: none;
+      cursor: pointer;
+      font-size: 40px;
+      font-weight: 800;
+      width: 200px;
+      height: 60px;
+      text-align: center;
+      padding-left: 20px;
+      margin-top: 10px;
+      margin-left: 30px;
+      border-radius: 20px;
+    }
+
+    .dropdown button > i {
+      font-size: 20px;
+      padding-right: 10px;
+      color: aqua;
+    }
+
+    .dropdown button:hover {
+      background-color: #c3b89e;
+    }
+  
+        
+        </style>
+</head>
+<body>
+
+    <div class="dropdown">
+        <button onclick="toggleDropdown()"><i class="fa-solid fa-grip-lines"></i>2048</button>
+        <div class="dropdown-content">
+          <a href="index.html">Standard 2048</a>
+          <a href="#">Cupcakes 2048</a>
+          <a href="t\index.html">2048 Taylor Swift</a>
+        </div>
+      </div>
+    
+      <script>
+        // Function to toggle the visibility of the dropdown menu
+        function toggleDropdown() {
+          var dropdownContent = document.querySelector('.dropdown-content');
+          // Toggle the display property between 'none' and 'block'
+          if (dropdownContent.style.display === 'block') {
+            dropdownContent.style.display = 'none';
+          } else {
+            dropdownContent.style.display = 'block';
+          }
+        }
+    
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+          if (!event.target.matches('.dropdown button')) {
+            var dropdownContent = document.querySelector('.dropdown-content');
+            if (dropdownContent.style.display === 'block') {
+              dropdownContent.style.display = 'none';
+            }
+          }
+        }
+      </script>
+    <iframe src="https://yoosfuhl.com/game/2048cupcakes/index.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="960px" width="100%px" allowfullscreen></iframe>
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+  <title>2048 Game - Play 2048 Game Online</title>
+
+
+<link rel="stylesheet" href="css/fonts/clear-sans4675.css?v=2020021701" as="style">
+<link rel="preload" href="css/fonts/ClearSans-Bold-webfont.woff" as="font" crossorigin>
+<link rel="preload" href="css/fonts/ClearSans-Regular-webfont.woff" as="font" crossorigin>
+
+<link href="css/maind30b.css?v=20241219.01" rel="stylesheet" type="text/css">
+<!-- <link href="/css/flag-icon.css" rel="stylesheet" type="text/css"> -->
+
+
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+  .score-container:after {
+    content: "Score";
+  }
+
+  .best-container:after {
+    content: "Best";
+  }
+ 
+  .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #e0dad1;
+      min-width: 250px;
+      height: 270px;
+      z-index: 1;
+      margin-left: 40px;
+      border-radius: 20px;
+      overflow: hidden;
+      padding-top: 20px;
+    }
+
+    .dropdown-content a {
+      color: #756452;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #c3b89e;
+      color: white;
+    }
+
+    /* Styling the dropdown button */
+    .dropdown button {
+      color: #756452;
+      background-color: #faf8ef;
+      border: none;
+      cursor: pointer;
+      font-size: 40px;
+      font-weight: 800;
+      width: 200px;
+      height: 60px;
+      text-align: center;
+      padding-left: 20px;
+      margin-top: 10px;
+      margin-left: 30px;
+      border-radius: 20px;
+    }
+
+    .dropdown button > i {
+      font-size: 20px;
+      padding-right: 10px;
+    }
+
+    .dropdown button:hover {
+      background-color: #c3b89e;
+    }
+  
+</style>
+
+
+<script async src="../cdn.fuseplatform.net/publift/tags/2/3393/fuse.js" type="1f40f2c5d4bd5505e470e198-text/javascript"></script>
+
+
+</head>
+<body>
+ 
+  
+  <div class="dropdown">
+    <button onclick="toggleDropdown()"><i class="fa-solid fa-grip-lines"></i>2048</button>
+    <div class="dropdown-content">
+      <a href="index.html">Standard 2048</a>
+      <a href="cakes.html">Cupcakes 2048</a>
+      <a href="taylorswift2048.html">2048 Taylor Swift</a>
+    </div>
+  </div>
+
+  <script>
+    // Function to toggle the visibility of the dropdown menu
+    function toggleDropdown() {
+      var dropdownContent = document.querySelector('.dropdown-content');
+      // Toggle the display property between 'none' and 'block'
+      if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+      } else {
+        dropdownContent.style.display = 'block';
+      }
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropdown button')) {
+        var dropdownContent = document.querySelector('.dropdown-content');
+        if (dropdownContent.style.display === 'block') {
+          dropdownContent.style.display = 'none';
+        }
+      }
+    }
+  </script>
+
+
+<div class="mobile-top"></div>
+<div class="container">
+  <div class="heading level-y flex">
+  <h1 class="flex-1 title"><a href='index.html'>2048</a></h1>
+  <div class="shrink scores-container">
+    <div class="score-container">0</div>
+    <div class="best-container">0</div>
+  </div>
+</div>
+<div class="game-intro">
+  <a class="restart-button">New Game</a>
+  <h2 class='subtitle'>Play <strong>2048 Game</strong> Online</h2>
+  <div class='above-game'>
+    <p>Join the numbers and get to the <strong>2048 tile!</strong></p>
+  </div>
+</div>
+
+<div class="game-container">
+  <div class="game-message">
+    <p></p>
+    <div class="lower">
+      <a class="keep-playing-button">Keep playing</a>
+      <a class="retry-button">Try again</a>
+      <div class="score-sharing">
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-container">
+    <div class="grid-row">
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+    </div>
+    <div class="grid-row">
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+    </div>
+    <div class="grid-row">
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+    </div>
+    <div class="grid-row">
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+      <div class="grid-cell"></div>
+    </div>
+  </div>
+
+  <div class="tile-container">
+
+  </div>
+</div>
+
+</div>
+
+<div style="margin: 1.5rem auto; max-width: 720px;">
+  <style>
+    .ads-below-game {
+      min-height: 100px;
+    }
+  </style>
+  <!-- GAM 71161633/2048_2048game/home_incontent_1 -->
+  <div data-fuse="23008544162" class="ads-below-game"></div>
+  
+  
+</div>
+
+
+   
+  
+
+
+  <footer class="text-center">
+  
+  <strong></strong> ·
+
+</footer>
+
+</div>
+
+
+
+
+<!-- <script src="/js/all.js"></script> -->
+<script src="js/bind_polyfill.js" type="1f40f2c5d4bd5505e470e198-text/javascript"></script>
+<script src="js/classlist_polyfill.js" type="1f40f2c5d4bd5505e470e198-text/javascript"></script>
+<script src="js/animframe_polyfill.js" type="1f40f2c5d4bd5505e470e198-text/javascript"></script>
+<script src="js/keyboard_input_manager.js" type="1f40f2c5d4bd5505e470e198-text/javascript"></script>
+<script src="js/html_actuator_local.js" type="1f40f2c5d4bd5505e470e198-text/javascript"></script>
+<script src="js/grid.js" type="1f40f2c5d4bd5505e470e198-text/javascript"></script>
+<script src="js/tile.js" type="1f40f2c5d4bd5505e470e198-text/javascript"></script>
+<script src="js/local_storage_manager.js" type="1f40f2c5d4bd5505e470e198-text/javascript"></script>
+<script src="js/game_manager.js" type="1f40f2c5d4bd5505e470e198-text/javascript"></script>
+<script src="js/application.js" type="1f40f2c5d4bd5505e470e198-text/javascript"></script>
+
+
+<!-- Google Analytics tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JS9L3DP5W6" type="1f40f2c5d4bd5505e470e198-text/javascript"></script>
+<script type="1f40f2c5d4bd5505e470e198-text/javascript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JS9L3DP5W6');
+</script>
+
+
+<script src="cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="1f40f2c5d4bd5505e470e198-|49" defer></script></body>
+
+<!-- Mirrored from 2048game.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 24 Jan 2025 10:57:38 GMT -->
+</html>
